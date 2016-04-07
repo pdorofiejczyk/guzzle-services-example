@@ -1,0 +1,74 @@
+{
+  "name": "jsonplaceholder",
+  "apiVersion": "2016-04-06",
+  "baseUrl": "http://jsonplaceholder.typicode.com",
+  "description": "Fake Online REST API for Testing and Prototyping",
+  "operations": {
+    "getPosts": {
+      "httpMethod": "GET",
+      "uri": "/posts",
+      "summary": "Gets a list of posts",
+      "responseClass": "\\App\\Posts"
+    },
+    "getPostById": {
+      "httpMethod": "GET",
+      "uri": "/posts/{id}",
+      "summary": "Gets a posts by id",
+      "responseClass": "\\App\\Post",
+      "parameters": {
+        "id": {
+          "location": "uri",
+          "description": "ID",
+          "required": true
+        }
+      }
+    }
+  },
+  "models": {
+    "App\\Posts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "location": "json",
+            "type": "integer"
+          },
+          "id": {
+            "location": "json",
+            "type": "integer"
+          },
+          "title": {
+            "location": "json",
+            "type": "string"
+          },
+          "body": {
+            "location": "json",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "App\\Post": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "location": "json",
+          "type": "integer"
+        },
+        "id": {
+          "location": "json",
+          "type": "integer"
+        },
+        "title": {
+          "location": "json",
+          "type": "string"
+        },
+        "body": {
+          "location": "json",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
